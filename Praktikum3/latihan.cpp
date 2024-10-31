@@ -11,7 +11,7 @@ Authors			: Rizky Andika Sukma
 
 using namespace std;
 
-//	Deklarasi variable global
+//	Deklarasi variable 
 string nik, nm_karyawan, pendidikan, tgl_lahir, agama, jn_kelamin;
 char selection;
 int gj_pokok, tnj_keluarga, tnj_jabatan, tnj_transport, tl_gaji;
@@ -25,17 +25,19 @@ public:
 	string tgl_lahir;
 	string agama;
 	string jn_kelamin;
+	string pendidikan;
 	int tl_gaji;
 	
 //	Default constructor
 	Karyawan() {}
 	
-	Karyawan(string nik, string nama, string tgl_lahir, string agama, string jn_kelamin, int tl_gaji){
+	Karyawan(string nik, string nama, string tgl_lahir, string agama, string jn_kelamin, string pendidikan, int tl_gaji){
 		this -> nik = nik;
 		this -> nama = nama;
 		this -> tgl_lahir = tgl_lahir;
 		this -> agama = agama;
 		this -> jn_kelamin = jn_kelamin;
+		this -> pendidikan = pendidikan;
 		this -> tl_gaji = tl_gaji;
 	} 
 };
@@ -54,6 +56,9 @@ void createKaryawan () {
 		
 	printf("Agama karyawan : ");
 	getline(cin, agama);
+	
+	printf("Pendidikan karyawan : ");
+	getline(cin, pendidikan);
 		
 	printf("Pilih jenis kelamin karyawan dengan format (L/P):\n");
 	printf("Laki-laki (L)\nPerempuan (P)\nPilihan: ");
@@ -108,6 +113,7 @@ int main () {
 	
 	cout << endl;
 	
+//	Memanggil object Karyawan
 	Karyawan karyawanData[jml_data];
 	
 	do {
@@ -120,13 +126,14 @@ int main () {
 		
 		cout << endl;
 		
-		karyawanData[index] = Karyawan(nik, nm_karyawan, tgl_lahir, agama, jn_kelamin, tl_gaji);
+//		Membuat data dari object karyawan
+		karyawanData[index] = Karyawan(nik, nm_karyawan, tgl_lahir, agama, jn_kelamin, pendidikan,tl_gaji);
 		
 		index++;
 		
 	}while(index != jml_data);
 	
-	
+//	Menampilkan data karyawan	
 	printf("=====DATA FINAL KARYAWAN=====\n\n");
 	
 	for (int i = 0; i < jml_data; ++i) {
@@ -136,6 +143,7 @@ int main () {
         cout << "Tanggal lahir: " << karyawanData[i].tgl_lahir << endl;
         cout << "Agama: " << karyawanData[i].agama << endl;
         cout << "Jenis kelamin: " << karyawanData[i].jn_kelamin << endl;
+        cout << "Pendidikan: " << karyawanData[i].pendidikan;
         cout << "Total gaji: " << karyawanData[i].tl_gaji << endl;
         cout << "-------------------------\n" << endl;
     }
