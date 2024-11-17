@@ -73,13 +73,18 @@ int main(int argc, char** argv) {
 						idx++;
 						index++;
 					}
+				}else {
+					cout << "\n\n-----INPUT-BARANG-----\n\n";
+					brng[idx] = createBarang();
+					idx++;
+					cout << endl;
 				}
 				
 				break;
 			}
 			
 			case 3: {
-				if (idx == 0 || idx > 0) {
+				if (idx == 0 || idx < 0) {
                     cout << "Stock Semua Barang Kosong!\n" << endl;
                 } else {
                 	int tlj_barang = 0, stc_barang = 0;
@@ -96,12 +101,13 @@ int main(int argc, char** argv) {
                 	cout << "Total stock semua barang : " << stc_barang << endl;
                 	cout << endl;
                 	
+                	cout << "KODE | NAMA_BARANG \t\t | STOCK_BARANG" << endl;
+                	
                 	cout << "---------------------------------------------------\n";
                 	for (int i = 0; i < idx; i++) {
-                        cout << brng[i].kd_brng << " | " << brng[i].nm_brng "\t\t : " << brng[i].stock_brng << endl;
+                        cout << brng[i].kd_brng << " | " << brng[i].nm_brng << "\t\t\t : " << brng[i].stock_brng << endl;
                     }
                     cout << "----------------------------------------------------\n";
-                	
                 }
 				break;
 			}
@@ -112,6 +118,7 @@ int main(int argc, char** argv) {
 			}
 		}
 		
+		cout << endl;
 		cout << "Tekan Enter Untuk Melanjutkan...";
 		getch();
 		
