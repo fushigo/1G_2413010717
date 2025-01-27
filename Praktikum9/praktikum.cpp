@@ -16,7 +16,7 @@ void satu() {
 }
 
 int main() {
-	int b = 3; c = 4; 		// Variable Local
+	int b = 3, c = 4; 		// Variable Local
 	
 	cout << "Nilai a : " << a << endl;
 	cout << "Nilai b : " << b << endl;
